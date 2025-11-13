@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<main class="site-root">
+	<header class="hero">
+		<div class="hero-inner">
+			<div class="hero-head">
+				<h1 class="hero-title">FIXED GEAR SOLACE</h1>
+				<p class="hero-sub">Fixed Gear Bikes | Bike Commuting Gear</p>
+			</div>
+			
+			<div class="bike-img">
+		<!--<img class="bike-front" src="{% static 'blog/waterbike.jpeg' %}" alt="Fixed Gear Bike on Road" />-->
+		<!--<img class="bike-front" src="{% static 'blog/bike1.jpeg' %}" alt="Fixed Gear Bike on Road" />-->
+		<!--<img class="bike-front" src="{% static 'blog/rainbow.jpeg' %}" alt="Fixed Gear Bike on Road" />-->
+		<div class="insta-logo">
+			<img src="{% static 'blog/instagram.png' %}" alt="instagram avatar">
+			<div class="insta-meta">
+				<h3>Follow on Instagram.</h3>
+				<div class="insta-actions">
+					<a class="insta-follow" href="https://instagram.com/" target="_blank" rel="noopener">Follow</a>
+					<a class="flaticon" href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Freepik - Flaticon</a>
+				</div>
+			</div>
+	</div>
+	</div>	
+		</div>
+		
+	</div>	
+	</header>
+	
+
+	
+
+	<section class="posts-section">
+		<div class="container">
+			<h2 class="section-title">Latest Blog Posts</h2>
+			<div class="home-layout">
+			  <div class="main-column">
+				<div class="posts-grid">
+				{% comment %} Expecting `posts` to be an iterable of objects with `get_absolute_url`, `title`, `author`, and `image_url` attributes/properties {% endcomment %}
+				{% for post in posts|slice:":3" %}
+				<article class="post-card">
+					<a class="card-link" href="{% url 'post_detail' post.id %}">
+						<div class="card-media">
+							{% if post.image %}
+							<img src="{{ post.image.url }}" alt="{{ post.title }}" />
+							{% else %}
+							<div class="card-placeholder"></div>
+							{% endif %}
+						</div>
+						<div class="card-body">
+							<h3 class="post-title">{{ post.title }}</h3>
+							<p class="post-meta">By <span class="post-author">{{ post.author }}</span></p>
+						</div>
+					</a>
+				</article>
+				{% empty %}
+				<p>No posts yet — check back soon.</p>
+				{% endfor %}
+				</div>
+			  </div>
+			  <aside class="gear-sidebar">
+				<h2 class="sidebar-title">TOP GEAR PICKS</h2>
+				<div class="gear-items">
+					{% for g in gear|slice:":3" %}
+					<div class="gear-item">
+						<a href="{% url 'gear'  %}">
+							{% if g.image %}<img src="{{ g.image }}" alt="{{ g.title }}" class="gear-thumb" />{% endif %}
+							<div class="gear-info">
+								<span class="gear-title">{{ g.name }}</span>
+								<span class="gear-desc">{{ g.brand }}</span>
+							</div>
+						</a>
+					</div>
+					{% empty %}
+					<p>No gear recommendations yet.</p>
+					{% endfor %}
+				</div>
+			  </aside>
+			</div>
+			<div class="all-blogs">
+				<a href="{% url 'blog' %}">All Blogs</a>
+			</div>
+		</div>
+	</section>
+</main>
+
+{% endblock %}
+
+
+
+
+

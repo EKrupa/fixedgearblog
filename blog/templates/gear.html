@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="gear-page">
+    <h1>Best Bike Commuting Gear</h1>
+
+    <ul class="gear-list">
+        {% for item in gear %}
+            <li class="gear-item">
+                <div class="container-gear">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.name }} image" class="container-gear-img" loading="lazy">
+                    {% endif %}
+                    {% if item.link %}
+                        <div class="gear-details-buy gear-details-buy-top">
+                            <a href="{{ item.link }}" target="_blank" rel="noopener" class="buy-link">Buy Here</a>
+                        </div>
+                    {% endif %}
+                    <h2 class="gear-header">
+                        <span class="gear-name">{{ item.name }}</span>
+                        <span class="gear-brand">{{ item.brand }}</span>
+                    </h2>
+                    <details class="gear-details">
+                        <summary>Details</summary>
+                        <div class="gear-details-content">
+                            <p class="gear-description">{{ item.description|linebreaks }}</p>
+                        </div>
+                    </details>
+                </div>
+            </li>
+        {% empty %}
+            <li class="gear-item">No gear items available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
