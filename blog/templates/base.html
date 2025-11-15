@@ -6,7 +6,7 @@
     {% load static %}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
-    <title>Fixed Gear Blog | Fixed Gear Bikes, Bike Commuting Gear</title>
+    <title>Fixed Gear Solace | Fixed Gear Bikes, Bike Commuting Gear</title>
     <meta name="description" content="Discover everything about fixed gear bikes, bike commuting gear, and urban cycling. Your resource for fixed gear, bike commuting, and gear reviews.">
     <meta name="keywords" content="fixed gear bike, fixed gear, bike commuting gear, bike commuting, urban cycling, gear reviews, single speed, fixie, cycling blog">
     <!-- Open Graph for social sharing -->
@@ -27,9 +27,9 @@
             <a href="{% url 'home' %}" class="nav-logo">Fixed Gear Blog</a>
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'gear'  %}">Gear</a></li>
-                <li><a href="{% url 'blog'  %}">Blogs</a></li>
+                <li><a href="{% url 'gear' %}">Gear</a></li>
+                <li><a href="{% url 'blog' %}">Blogs</a></li>
+                <li><a href="{% url 'about'  %}">About</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
                 <ul>
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'gear' %}">Gear</a></li>
+                    <li><a href="{% url 'gear' %}">Shop</a></li>
                     <li><a href="{% url 'blog' %}">Blogs</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
