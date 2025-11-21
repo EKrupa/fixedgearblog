@@ -34,12 +34,12 @@
 
 	<section class="posts-section">
 		<div class="container">
-			<h2 class="section-title">Latest Blog Posts</h2>
+			<h2 class="section-title">LATEST BLOG POSTS</h2>
 			<div class="home-layout">
 			  <div class="main-column">
 				<div class="posts-grid">
 				{% comment %} Expecting `posts` to be an iterable of objects with `get_absolute_url`, `title`, `author`, and `image_url` attributes/properties {% endcomment %}
-				{% for post in posts|slice:":3" %}
+				{% for post in posts|slice:":4" %}
 				<article class="post-card">
 					<a class="card-link" href="{% url 'post_detail' post.id %}">
 						<div class="card-media">
@@ -61,7 +61,7 @@
 				</div>
 			  </div>
 			  <aside class="gear-sidebar">
-				<h2 class="sidebar-title">TOP GEAR PICKS</h2>
+				<h2 class="sidebar-title">SHOP TOP GEAR</h2>
 				<div class="gear-items">
 					{% for g in gear|slice:":3" %}
 					<div class="gear-item">

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post, Gear
+from .models import Post, Gear, Bike
 from .forms import ContactMessageForm, CommentForm
 
 
@@ -7,7 +7,8 @@ from .forms import ContactMessageForm, CommentForm
 def home(request):
     posts = Post.objects.all().order_by('-published')[:12]
     gear = Gear.objects.all()
-    return render(request, 'home.html', {'posts': posts, 'gear': gear})
+    bikes = Post.objects.all().order_by('-published')[:4]
+    return render(request, 'home.html', {'posts': posts, 'gear': gear, 'bikes': bikes})
 
 
 def post_detail(request, post_id):
@@ -36,3 +37,8 @@ def contact(request):
     else:
         form = ContactMessageForm()
         return render(request, 'contact.html', {'form': form})
+    
+
+def bikes(request):
+    bikes = Bike.objects.all()
+    return render(request, 'bikes.html', {'bikes': bikes})

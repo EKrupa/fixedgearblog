@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+<div class="bikes-page">
+    <h1>My Bikes</h1>
+    <div class="bikes-row">
+        {% for bike in bikes %}
+            <div class="bike-card">
+                <div class="container-bike">
+                    {% if bike.image %}
+                        <img src="{{ bike.image.url }}" alt="{{ bike.name }} image" class="container-bike-img" loading="lazy" onclick="openModal('{{ bike.image.url }}')">
+                    {% endif %}
+                    <h2 class="bike-header">
+                        <span class="bike-name">{{ bike.name }}</span>
+                        <span class="bike-model">{{ bike.model }}</span>
+                    </h2>
+                    <details class="bike-details">
+                        <summary>Details</summary>
+                        <div class="bike-details-content">
+                            <p class="bike-description">{{ bike.description|linebreaks }}</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        {% empty %}
+            <div class="bike-card">No bikes available.</div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Modal for enlarged image -->
+<div id="bikeModal" class="bike-modal" style="display:none;">
+  <span class="bike-modal-close" onclick="closeModal()">&times;</span>
+  <img class="bike-modal-content" id="bikeModalImg" src="" alt="Bike image">
+</div>
+
+<script>
+function openModal(imgUrl) {
+  var modal = document.getElementById('bikeModal');
+  var modalImg = document.getElementById('bikeModalImg');
+  modal.style.display = 'block';
+  modalImg.src = imgUrl;
+}
+function closeModal() {
+  var modal = document.getElementById('bikeModal');
+  modal.style.display = 'none';
+}
+window.onclick = function(event) {
+  var modal = document.getElementById('bikeModal');
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+</script>
+{% endblock %}
