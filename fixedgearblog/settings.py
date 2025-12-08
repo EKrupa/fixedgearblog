@@ -122,20 +122,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # During development, tell Django to also look for static files in the
-# project-level `static/` directory (BASE_DIR / 'static').
+# project-level `static/` directory
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
-# Where `collectstatic` will copy static files for production deployments.
-# This directory is typically served by your web server (nginx, etc.).
+# Where `collectstatic` will copy static files for production deployments
+# This directory is typically served by your web server (nginx, etc.)
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
