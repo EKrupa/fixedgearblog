@@ -17,7 +17,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['54.144.238.122', 'localhost', 'www.fixedgearsolace.com', 'fixedgearsolace.com']
+ALLOWED_HOSTS = ['98.85.130.216', 'localhost', 'www.fixedgearsolace.com', 'fixedgearsolace.com']
 
 
 
